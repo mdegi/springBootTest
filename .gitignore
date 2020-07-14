@@ -1,0 +1,18 @@
+syntax: glob
+
+# IntelliJ files and folders
+.idea/*
+**/.idea/*
+*.iml
+**/*.iml
+
+# Ignore all target folders
+target/*
+**/target/*
+
+
+**/.project
+*.bak
+*.orig
+*/.classpath
+*.class
