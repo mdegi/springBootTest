@@ -1,5 +1,8 @@
 package com.example.accessingdatamongodb;
 
+import com.example.accessingdatamongodb.model.Customer;
+import com.example.accessingdatamongodb.repository.CustomerRepository;
+import com.example.accessingdatamongodb.service.CustomerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,20 +16,20 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @RestController
-public class AccessingDataMongodbRestApplication implements CommandLineRunner {
+public class ApplicationController implements CommandLineRunner {
 
 	private final CustomerRepository repository;
 
 	private static final String ALL_CUSTOMERS = "ALL";
 
-	private MongoDBCustomer dbCustomer;
+	private CustomerService dbCustomer;
 
-	public AccessingDataMongodbRestApplication(CustomerRepository repository) {
+	public ApplicationController(CustomerRepository repository) {
 		this.repository = repository;
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(AccessingDataMongodbRestApplication.class, args);
+		SpringApplication.run(ApplicationController.class, args);
 	}
 
 	@GetMapping("/customer")
@@ -35,14 +38,17 @@ public class AccessingDataMongodbRestApplication implements CommandLineRunner {
 		if (name.equals(ALL_CUSTOMERS) || name.equals(ALL_CUSTOMERS.toLowerCase())) {
 			 return dbCustomer.findAll().stream().map(Customer::toString).collect(Collectors.toList());
 		} else {
-			customers.add(dbCustomer.findByFirstName(name).toString());
+			Customer customerRec = dbCustomer.findByFirstName(name);
+			if (customerRec != null) {
+				customers.add(dbCustomer.findByFirstName(name).toString());
+			}
 			return customers;
 		}
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		dbCustomer = new MongoDBCustomer(repository);
+		dbCustomer = new CustomerService(repository);
 		dbCustomer.initDB();
 	}
 

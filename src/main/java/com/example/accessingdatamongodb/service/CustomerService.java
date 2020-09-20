@@ -1,12 +1,13 @@
-package com.example.accessingdatamongodb;
+package com.example.accessingdatamongodb.service;
 
-import org.hibernate.validator.internal.xml.mapping.MappingXmlParser;
+import com.example.accessingdatamongodb.repository.CustomerRepository;
+import com.example.accessingdatamongodb.model.Customer;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-public class MongoDBCustomer {
+public class CustomerService {
 
     private final int INIT_ACCESS_NUMBER = 79632190;
     private final double INIT_CREDIT_LIMIT = 1000;
@@ -15,7 +16,7 @@ public class MongoDBCustomer {
 
     private CustomerRepository repository;
 
-    public MongoDBCustomer(CustomerRepository repository) {
+    public CustomerService(CustomerRepository repository) {
         this.repository = repository;
     }
 
