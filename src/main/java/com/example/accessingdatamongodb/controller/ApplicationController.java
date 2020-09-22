@@ -39,7 +39,6 @@ public class ApplicationController implements CommandLineRunner {
 		}
 	}
 
-
 	@Override
 	public void run(String... args) throws Exception {
 		dbCustomer = new CustomerService(repository);
