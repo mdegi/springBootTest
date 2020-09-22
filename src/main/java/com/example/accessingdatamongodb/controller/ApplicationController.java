@@ -17,7 +17,7 @@ public class ApplicationController implements CommandLineRunner {
 
 	private final CustomerRepository repository;
 
-	private static final String ALL_CUSTOMERS = "ALL";
+	private static final String ALL_VALUES = "ALL";
 
 	private CustomerService dbCustomer;
 
@@ -26,9 +26,9 @@ public class ApplicationController implements CommandLineRunner {
 	}
 
 	@GetMapping("/customer")
-	public List<String> hello(@RequestParam(value = "name", defaultValue = ALL_CUSTOMERS) String name) {
+	public List<String> getDetailsByName(@RequestParam(value = "name", defaultValue = ALL_VALUES) String name) {
 		List<String> customers = new ArrayList<>();
-		if (name.equals(ALL_CUSTOMERS) || name.equals(ALL_CUSTOMERS.toLowerCase())) {
+		if (name.equals(ALL_VALUES) || name.equals(ALL_VALUES.toLowerCase())) {
 			 return dbCustomer.findAll().stream().map(Customer::toString).collect(Collectors.toList());
 		} else {
 			Customer customerRec = dbCustomer.findByFirstName(name);
@@ -38,6 +38,7 @@ public class ApplicationController implements CommandLineRunner {
 			return customers;
 		}
 	}
+
 
 	@Override
 	public void run(String... args) throws Exception {
