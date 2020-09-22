@@ -1,11 +1,9 @@
-package com.example.accessingdatamongodb;
+package com.example.accessingdatamongodb.controller;
 
 import com.example.accessingdatamongodb.model.Customer;
 import com.example.accessingdatamongodb.repository.CustomerRepository;
 import com.example.accessingdatamongodb.service.CustomerService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@SpringBootApplication
 @RestController
 public class ApplicationController implements CommandLineRunner {
 
@@ -26,10 +23,6 @@ public class ApplicationController implements CommandLineRunner {
 
 	public ApplicationController(CustomerRepository repository) {
 		this.repository = repository;
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(ApplicationController.class, args);
 	}
 
 	@GetMapping("/customer")
