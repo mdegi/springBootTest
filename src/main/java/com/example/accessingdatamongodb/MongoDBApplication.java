@@ -10,5 +10,4 @@ public class MongoDBApplication {
 		SpringApplication.run(MongoDBApplication.class, args);
 	}
 
-
 }

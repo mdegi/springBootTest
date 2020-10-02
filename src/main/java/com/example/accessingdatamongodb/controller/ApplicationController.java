@@ -19,30 +19,31 @@ public class ApplicationController implements CommandLineRunner {
 
 	private static final String ALL_VALUES = "ALL";
 
-	private CustomerService dbCustomer;
+	private final CustomerService customerService;
 
-	public ApplicationController(CustomerRepository repository) {
+	public ApplicationController(CustomerRepository repository, CustomerService customerService) {
 		this.repository = repository;
+		this.customerService = customerService;
 	}
 
 	@GetMapping("/customer")
 	public List<String> getDetailsByName(@RequestParam(value = "name", defaultValue = ALL_VALUES) String name) {
 		List<String> customers = new ArrayList<>();
 		if (name.equals(ALL_VALUES) || name.equals(ALL_VALUES.toLowerCase())) {
-			 return dbCustomer.findAll().stream().map(Customer::toString).collect(Collectors.toList());
+			 return customerService.findAll().stream().map(Customer::toString).collect(Collectors.toList());
 		} else {
-			Customer customerRec = dbCustomer.findByFirstName(name);
+			Customer customerRec = customerService.findByFirstName(name);
 			if (customerRec != null) {
-				customers.add(dbCustomer.findByFirstName(name).toString());
+				customers.add(customerService.findByFirstName(name).toString());
 			}
 			return customers;
 		}
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
-		dbCustomer = new CustomerService(repository);
-		dbCustomer.initDB();
+	public void run(String... args) {
+		customerService.setRepository(repository);
+		customerService.initDB();
 	}
 
 }

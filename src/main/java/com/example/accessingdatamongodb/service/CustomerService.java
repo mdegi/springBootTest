@@ -2,11 +2,13 @@ package com.example.accessingdatamongodb.service;
 
 import com.example.accessingdatamongodb.repository.CustomerRepository;
 import com.example.accessingdatamongodb.model.Customer;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
+@Component("customerService")
 public class CustomerService {
 
     private final int INIT_ACCESS_NUMBER = 79632190;
@@ -16,7 +18,7 @@ public class CustomerService {
 
     private CustomerRepository repository;
 
-    public CustomerService(CustomerRepository repository) {
+    public void setRepository(CustomerRepository repository) {
         this.repository = repository;
     }
 
