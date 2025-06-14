@@ -43,7 +43,7 @@ public class CustomerService {
         return repository.findByFirstName(name);
     }
 
-    //initialise DB here
+    //initialise DB here and some other comment to make it longer
     public void initDB() {
         repository.deleteAll();
 
