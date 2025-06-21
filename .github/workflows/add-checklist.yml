@@ -13,5 +13,5 @@ jobs:
       - name: Add review checklist
         uses: trixi-framework/add-pr-review-checklist@v1
         with:
-          file: '.github/pull_request_template.md'
+          file: '.github/PULL_REQUEST_TEMPLATE/pull_request_template.md'
           no-checklist-keyword: '[no checklist]' # Optional: ignore if this keyword is in the PR description
