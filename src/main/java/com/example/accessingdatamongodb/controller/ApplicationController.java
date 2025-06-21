@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 
 @RestController
 public class ApplicationController implements CommandLineRunner {
-	
+
+	//added some comment
 	private final CustomerRepository repository;
 
 	private static final String ALL_VALUES = "ALL";
