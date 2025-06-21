@@ -2,9 +2,6 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<title>Checklist with Textboxes</title>
-</head>
 <body>
 
   <h2>Functional Requirements</h2>
