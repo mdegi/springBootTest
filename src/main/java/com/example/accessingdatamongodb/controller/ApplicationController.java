@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 public class ApplicationController implements CommandLineRunner {
 
-	//I am changing a comment for Peer review
+	//Yes sure good idea
 	private final CustomerRepository repository;
 
 	private static final String ALL_VALUES = "ALL";
