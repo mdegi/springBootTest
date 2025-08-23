@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ApplicationController implements CommandLineRunner {
 
 
-	//This is a sample comment to test PR
+	//Testing PR
 	private final CustomerRepository repository;
 
 	private static final String ALL_VALUES = "ALL";
