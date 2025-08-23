@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ApplicationController implements CommandLineRunner {
 
 
-	//Testing PR with new setup
+	//Testing PR removed new setup
 	private final CustomerRepository repository;
 
 	private static final String ALL_VALUES = "ALL";
