@@ -28,12 +28,12 @@ jobs:
       - name: Super-linter
         uses: github/super-linter@v6
         env:
-          # To report GitHub Actions status checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # To report GitHub Actions status checks          
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
           DEFAULT_BRANCH: main
           JAVA_CHECKSTYLE_CONFIG_FILE:: .github/workflows/config/checkstyle.xml
-          LINTER_RULES_PATH: .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           
         
