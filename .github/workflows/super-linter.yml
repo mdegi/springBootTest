@@ -33,6 +33,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
           DEFAULT_BRANCH: main
-          JAVA_CONFIG_FILE: .github/workflows/config/checkstyle.xml
+          JAVA_CHECKSTYLE_CONFIG_FILE:: .github/workflows/config/checkstyle.xml
+          LINTER_RULES_PATH: .
           
         
