@@ -21,19 +21,19 @@ public class ApplicationController implements CommandLineRunner {
     private final CustomerService customerService;
 
     /**
-     * This is the constructor of the Application. 
-     * @param repository - customer reporitory object
-     * @param customerService - customer service object
+     * This is the constructor of the Application.
+     * @param customerRepository - customer reporitory object
+     * @param customerServiceParam - customer service object
      */
-    public ApplicationController(final CustomerRepository customerRepository, 
-                                  final CustomerService customerService) {
+    public ApplicationController(final CustomerRepository customerRepository,
+                                  final CustomerService customerServiceParam) {
         this.repository = customerRepository;
-        this.customerService = customerService;
+        this.customerService = customerServiceParam;
     }
 
     /**
-     * This method has been done to test different options in requestMapping annotation.
-     * Examples can be as follows:
+     * This method has been done to test different options in
+     * requestMapping annotation. Examples as follows:
      * http://localhost:8080/customerName/msisdn:35679632198?fields=DOB
      * http://localhost:8080/customerName/msisdn:35679632198
      * @param identifierType Identifier Type
@@ -44,10 +44,9 @@ public class ApplicationController implements CommandLineRunner {
 	@RequestMapping(value = "/customerName/{identifierType}:{serviceId}")
     @ResponseBody
     public String getCustomer(
-        @PathVariable String identifierType,
-        @PathVariable String serviceId,
-        @RequestParam(value = "fields", required = false) String params)
-    {
+        @PathVariable final String identifierType,
+        @PathVariable final String serviceId,
+        @RequestParam(value = "fields", required = false) final String params) {
         return "The selected parameters are identifierType / serviceId / params : >>"
                 + identifierType + "<< >>" + serviceId + "<< >>>" + params ;
 
@@ -61,11 +60,11 @@ public class ApplicationController implements CommandLineRunner {
     @RequestMapping(value = "/customer", method = RequestMethod.GET)
     public List<String> getDetailsByName(
         @RequestParam(value = "name", defaultValue = ALL_VALUES)
-        String name)
-    {
+        final String name) {
         List<String> customers = new ArrayList<>();
         if (name.equals(ALL_VALUES) || name.equals(ALL_VALUES.toLowerCase())) {
-            return customerService.findAll().stream().map(Customer::toString).collect(Collectors.toList());
+            return customerService.findAll().stream().map(Customer::toString)
+                .collect(Collectors.toList());
         } else {
             Customer customerRec = customerService.findByFirstName(name);
             if (customerRec != null) {
