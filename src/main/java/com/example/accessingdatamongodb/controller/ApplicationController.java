@@ -41,14 +41,14 @@ public class ApplicationController implements CommandLineRunner {
      * @param params Parameters
      * @return String
      */
-	@RequestMapping(value = "/customerName/{identifierType}:{serviceId}")
+    @RequestMapping(value = "/customerName/{identifierType}:{serviceId}")
     @ResponseBody
     public String getCustomer(
         @PathVariable final String identifierType,
         @PathVariable final String serviceId,
         @RequestParam(value = "fields", required = false) final String params) {
-        return "The selected parameters are identifierType / serviceId / params : >>"
-                + identifierType + "<< >>" + serviceId + "<< >>>" + params ;
+        return "The selected parameters are identifierType / serviceId / " +
+			"params : >>" + identifierType + "<< >>" + serviceId + "<< >>>" + params;
 
     }
 
@@ -79,7 +79,7 @@ public class ApplicationController implements CommandLineRunner {
      * @param args Arguments
      */
     @Override
-    public void run(String... args) {
+    public void run(final String... args) {
         customerService.setRepository(repository);
         customerService.initDB();
     }
