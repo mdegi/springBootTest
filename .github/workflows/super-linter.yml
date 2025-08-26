@@ -32,7 +32,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
           DEFAULT_BRANCH: master
-          JAVA_CHECKSTYLE_CONFIG_FILE:: .github/workflows/config/checkstyle.xml
+          LINTER_RULES_PATH: .
+          JAVA_CHECKSTYLE_CONFIG_FILE: .github/workflows/config/checkstyle.xml
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
           
