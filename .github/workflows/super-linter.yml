@@ -31,7 +31,7 @@ jobs:
           # To report GitHub Actions status checks          
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
           JAVA_CHECKSTYLE_CONFIG_FILE:: .github/workflows/config/checkstyle.xml
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
