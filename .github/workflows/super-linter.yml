@@ -19,7 +19,7 @@ jobs:
           LINTER_RULES_PATH: .github/linters
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
           # Use the custom checkstyle config to extend line length
