@@ -4,10 +4,21 @@
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-  <module name="TreeWalker">
-    <!-- Allow up to 120 characters per line -->
-    <module name="LineLength">
-      <property name="max" value="120"/>
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="warning"/>
+    <property name="fileExtensions" value="java"/>
+
+    <!-- All files must have a header -->
+    <module name="Header">
+        <property name="headerFile" value="${checkstyle.header.file}"/>
+        <property name="fileExtensions" value="java"/>
     </module>
-  </module>
+
+    <module name="TreeWalker">
+        <!-- Set the maximum line length to 120 characters -->
+        <module name="LineLength">
+            <property name="max" value="120"/>
+            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        </module>
+    </module>
 </module>
