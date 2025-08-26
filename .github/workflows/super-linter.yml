@@ -20,6 +20,6 @@ jobs:
           JAVA_CHECKSTYLE_CONFIG_FILE: .github/linters/checkstyle.xml
           # Set to 'true' to have the linter fix issues automatically
           LINTER_RULES_PATH: .
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
