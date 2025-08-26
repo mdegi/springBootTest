@@ -1,0 +1,25 @@
+name: Lint Code Base
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # Full git history is needed to get a proper list of changed files
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v6
+        env:
+          # Use the custom checkstyle config to extend line length
+          JAVA_CHECKSTYLE_CONFIG_FILE: .github/linters/checkstyle.xml
+          # Set to 'true' to have the linter fix issues automatically
+          LINTER_RULES_PATH: .
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
