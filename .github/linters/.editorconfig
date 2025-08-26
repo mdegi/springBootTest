@@ -1,0 +1,8 @@
+# This is the root of the project
+root = true
+
+# Rules for Java files
+[*.{java}]
+# Set the max line length to 120, which is more common for modern projects.
+# Set to "off" to disable the check entirely.
+max_line_length = 120
