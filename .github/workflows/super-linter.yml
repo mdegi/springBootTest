@@ -22,16 +22,3 @@ jobs:
           VALIDATE_JAVA: true
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-          # Use the custom checkstyle config to extend line length
-          # JAVA_CHECKSTYLE_CONFIG_FILE: .github/linters/checkstyle.xml
-          # Set to 'true' to have the linter fix issues automatically
-          #LINTER_RULES_PATH: .
-          #VALIDATE_ALL_CODEBASE: true
-          #VALIDATE_JAVA: true
-          #VALIDATE_JAVA_CHECKSTYLE_CONFIG_FILE: .github/linters/checkstyle.xml
-          #DEFAULT_BRANCH: master
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #JAVA_LINTER_RULES_PATH: .github/linters/
-          #JAVA_FILE_EXTENSIONS: "java"
-          #JAVA_LINTER_RULE_MAX_LINE_LENGTH: "120"  # Set max line length to 120
