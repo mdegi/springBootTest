@@ -32,7 +32,7 @@ public class ApplicationController implements CommandLineRunner {
 	//http://localhost:8080/customerName/msisdn:35679632198
 	@RequestMapping(value = "/customerName/{identifierType}:{serviceId}")
 	@ResponseBody
-	public String get_Customer(
+	public String getCustomer(
 			@PathVariable String identifierType,
 			@PathVariable String serviceId,
 			@RequestParam(value = "fields", required = false) String params)
