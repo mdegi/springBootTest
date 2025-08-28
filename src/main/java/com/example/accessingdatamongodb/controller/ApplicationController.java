@@ -32,20 +32,13 @@ public class ApplicationController implements CommandLineRunner {
 	//http://localhost:8080/customerName/msisdn:35679632198
 	@RequestMapping(value = "/customerName/{identifierType}:{serviceId}")
 	@ResponseBody
-	public String getCustomer(
+	public String get_Customer(
 			@PathVariable String identifierType,
 			@PathVariable String serviceId,
 			@RequestParam(value = "fields", required = false) String params)
 	{
-
-		String myVar = null;
-		int myOtherVar = myVar.length();
-		
 		return "The selected parameters are identifierType / serviceId / params : >>"
 				+ identifierType + "<< >>" + serviceId + "<< >>>" + params ;
-
-		System.out.println("Will this fail ?");
-
 	}
 
 	//@GetMapping("/customer")
