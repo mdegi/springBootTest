@@ -7,6 +7,7 @@
     <property name="charset" value="UTF-8"/>
     <property name="severity" value="warning"/>
     <property name="fileExtensions" value="java"/>
+    <property name="checkstyle.header.file" value=".github/linters/java_header.txt"/>
 
     <!-- All files must have a header -->
     <!--
@@ -16,8 +17,8 @@
     </module>
     -->
     <module name="Header">
-    <!-- <property name="headerFile" value="${checkstyle.header.file}"/> -->
-        <property name="headerFile" value=".github/linters/java_header.txt"/>
+        <property name="headerFile" value="${checkstyle.header.file}"/>
+        <!-- <property name="headerFile" value=".github/linters/java_header.txt"/> -->
         <property name="fileExtensions" value="java"/>
     </module>
 
@@ -26,14 +27,6 @@
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
-
-<!--<module name="TreeWalker">     
-        <module name="LineLength">
-            <property name="max" value="120"/>
-            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-        </module>        
-    </module>
--->
 
     <module name="JavadocType">
         <property name="severity" value="ignore"/>
