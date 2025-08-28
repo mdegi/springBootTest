@@ -17,6 +17,7 @@ jobs:
         uses: github/super-linter@v6
         env:
           LINTER_RULES_PATH: .github/linters/
+          JAVA_FILE_NAME: checkstyle.xml
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
           DEFAULT_BRANCH: master
