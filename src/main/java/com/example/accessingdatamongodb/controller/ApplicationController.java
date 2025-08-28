@@ -37,8 +37,14 @@ public class ApplicationController implements CommandLineRunner {
 			@PathVariable String serviceId,
 			@RequestParam(value = "fields", required = false) String params)
 	{
+
+		String myVar = null;
+		int myOtherVar = myVar.length();
+		
 		return "The selected parameters are identifierType / serviceId / params : >>"
 				+ identifierType + "<< >>" + serviceId + "<< >>>" + params ;
+
+		System.out.println("Will this fail ?");
 
 	}
 
