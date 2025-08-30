@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ApplicationController implements CommandLineRunner {
 
 
-	//Testing PR and Linter - seems ok
+	//Testing PR and Linter
 	private final CustomerRepository repository;
 
 	private static final String ALL_VALUES = "ALL";
