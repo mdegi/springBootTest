@@ -19,6 +19,14 @@
     <module name="LineLength">
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        <property name="severity" value="error"/>
+    </module>
+
+    <module name="MethodNameCheck">
+        <!-- Validates identifiers for method names. -->
+        <metadata name="altname" value="MethodName"/>
+        <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
+        <property name="severity" value="warning"/>
     </module>
 
     <module name="JavadocType">
