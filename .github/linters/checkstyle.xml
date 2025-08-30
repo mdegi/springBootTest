@@ -37,7 +37,7 @@
             <!-- Validates identifiers for method names. -->
             <metadata name="altname" value="MethodName"/>
             <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
-            <property name="severity" value="warning"/>
+            <property name="severity" value="error"/>
         </module>
     </module>
     
