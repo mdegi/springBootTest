@@ -60,6 +60,10 @@ public class ApplicationController implements CommandLineRunner {
 		}
 	}
 
+	private void some_wrong_method() {
+		System.out.println("Incorrect naming convention");
+	}
+	
 	@Override
 	public void run(String... args) {
 		customerService.setRepository(repository);
