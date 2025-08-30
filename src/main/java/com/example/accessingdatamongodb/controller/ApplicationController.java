@@ -60,6 +60,10 @@ public class ApplicationController implements CommandLineRunner {
 		}
 	}
 
+	private void someWrongMethod() {
+		System.out.println("Incorrect naming convention when starting with an uppercase letter");
+	}
+	
 	@Override
 	public void run(String... args) {
 		customerService.setRepository(repository);
