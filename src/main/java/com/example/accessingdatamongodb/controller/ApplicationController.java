@@ -60,7 +60,7 @@ public class ApplicationController implements CommandLineRunner {
 		}
 	}
 
-	private void some_wrong_method() {
+	private void Some_wrong_method() {
 		System.out.println("Incorrect naming convention");
 	}
 	
