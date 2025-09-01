@@ -1,6 +1,11 @@
 name: Lint Code Base
 
-on: [push, pull_request]
+# on: [push, pull_request]
+on:
+  push:
+    branches: [ "master" ]
+  pull_request_target:
+    types: [opened]
 
 jobs:
   lint:
