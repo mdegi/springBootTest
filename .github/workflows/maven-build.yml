@@ -16,9 +16,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 23
@@ -29,4 +27,24 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install --file pom.xml -DskipTests
+  
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # Full git history is needed to get a proper list of changed files
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v6
+        env:
+          LINTER_RULES_PATH: .github/linters/
+          JAVA_FILE_NAME: checkstyle.xml
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVA: true
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
