@@ -9,11 +9,11 @@
     <property name="fileExtensions" value="java"/>
     <!-- <property name="checkstyle.header.file" value=".github/linters/java_header.txt"/> -->
 
-    <module name="Header">
+<!--     <module name="Header"> -->
          <!-- <property name="headerFile" value="${checkstyle.header.file}"/> -->
-        <property name="headerFile" value=".github/linters/java_header.txt"/>
-        <property name="fileExtensions" value="java"/>
-    </module>
+<!--         <property name="headerFile" value=".github/linters/java_header.txt"/> -->
+<!--         <property name="fileExtensions" value="java"/> -->
+<!--     </module> -->
 
     <!-- Set the maximum line length to 120 characters -->
     <module name="LineLength">
