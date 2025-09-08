@@ -34,11 +34,10 @@
 
 
     <module name="TreeWalker">
-        <module name="RedundantImport">
-          <!-- Checks for redundant import statements. -->
+<!--         <module name="RedundantImport">
           <property name="severity" value="error"/>
         </module>
-
+ -->
         
         <module name="MethodNameCheck">
             <!-- Validates identifiers for method names. -->
@@ -46,6 +45,23 @@
             <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
             <property name="severity" value="error"/>
         </module>
+
+<!--         <module name="ImportControl">
+            <property name="severity" value="error"/>
+            <property name="file" value="config/checkstyle/import-control.xml"/>
+        </module> -->
+        <module name="AvoidStarImport"/> 
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+
+        <!-- Modifiers -->
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
+
+        <!-- Long constants are defined with an uppercase ell. That is 'L' and not 'l'. -->
+        <module name="UpperEll"/>
+
+        
     </module>    
 </module>
 
