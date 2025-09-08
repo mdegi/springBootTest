@@ -16,7 +16,8 @@ import java.util.Vector;
 public class ApplicationController implements CommandLineRunner {
 
 
-	public final static String nonCorrectVar = "testValue";
+	//public final static String nonCorrectVar = "testValue";
+	public static final String nonCorrectVar = "testValue";
 
 	//Testing PR & CI
 	private final CustomerRepository repository;
