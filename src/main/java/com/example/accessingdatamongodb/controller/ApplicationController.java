@@ -10,9 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.Vector;
+
 @RestController
 public class ApplicationController implements CommandLineRunner {
 
+	//public final static String inCorrectNamedVar = "testValue";
+	public static final String A_CORRECT_NAMED_VAR = "testValue";
 
 	//Testing PR & CI
 	private final CustomerRepository repository;
@@ -26,6 +30,10 @@ public class ApplicationController implements CommandLineRunner {
 		this.customerService = customerService;
 	}
 
+	private void someWrongMethod() {
+		System.out.println("Incorrect naming convention when starting with an uppercase letter");
+	}
+	
 	//This method has been done to test different options in requestMapping annotation
 	//examples can be as follows:
 	//http://localhost:8080/customerName/msisdn:35679632198?fields=DOB
@@ -60,10 +68,6 @@ public class ApplicationController implements CommandLineRunner {
 		}
 	}
 
-	private void someWrongMethod() {
-		System.out.println("Incorrect naming convention when starting with an uppercase letter");
-	}
-	
 	@Override
 	public void run(String... args) {
 		customerService.setRepository(repository);
