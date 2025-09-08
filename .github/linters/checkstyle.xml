@@ -46,17 +46,28 @@
             <property name="severity" value="error"/>
         </module>
 
-<!--         <module name="ImportControl">
-            <property name="severity" value="error"/>
-            <property name="file" value="config/checkstyle/import-control.xml"/>
-        </module> -->
-        <module name="AvoidStarImport"/> 
-        <module name="RedundantImport"/>
-        <module name="UnusedImports"/>
+        <module name="AvoidStarImport"> 
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="RedundantImport">
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="UnusedImports">
+            <property name="severity" value="warning"/>
+        </module>
+
 
         <!-- Modifiers -->
-        <module name="ModifierOrder"/>
-        <module name="RedundantModifier"/>
+        <module name="ModifierOrder">
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="RedundantModifier">
+            <property name="severity" value="warning"/>
+        </module>
+
 
         <!-- Long constants are defined with an uppercase ell. That is 'L' and not 'l'. -->
         <module name="UpperEll"/>
