@@ -15,7 +15,7 @@
 <!--         <property name="fileExtensions" value="java"/> -->
 <!--     </module> -->
 
-    <!-- Set the maximum line length to 120 characters -->
+    <!-- Set the maximum line length from 80 characters default -->
     <module name="LineLength">
         <property name="max" value="120"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
@@ -34,11 +34,6 @@
 
 
     <module name="TreeWalker">
-<!--         <module name="RedundantImport">
-          <property name="severity" value="error"/>
-        </module>
- -->
-        
         <module name="MethodNameCheck">
             <!-- Validates identifiers for method names. -->
             <metadata name="altname" value="MethodName"/>
@@ -46,6 +41,7 @@
             <property name="severity" value="error"/>
         </module>
 
+        <!-- Import checks -->
         <module name="AvoidStarImport"> 
             <property name="severity" value="warning"/>
         </module>
@@ -72,6 +68,21 @@
         <!-- Long constants are defined with an uppercase ell. That is 'L' and not 'l'. -->
         <module name="UpperEll"/>
 
+
+        <module name="ConstantNameCheck">
+          <!-- Validates non-private, static, final fields against the supplied
+          public/package final fields "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$". -->
+          <metadata name="altname" value="ConstantName"/>
+          <property name="applyToPublic" value="true"/>
+          <property name="applyToProtected" value="true"/>
+          <property name="applyToPackage" value="true"/>
+          <property name="applyToPrivate" value="false"/>
+          <property name="format" value="^([A-Z][A-Z0-9]*(_[A-Z0-9]+)*|FLAG_.*)$"/>
+          <message key="name.invalidPattern"
+                   value="Variable ''{0}'' should be in ALL_CAPS (if it is a constant) or be private (otherwise)."/>
+          <property name="severity" value="warning"/>
+        </module>
+    
         
     </module>    
 </module>
