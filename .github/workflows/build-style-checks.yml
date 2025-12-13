@@ -12,4 +12,4 @@ on:
 
 jobs:
   use-template:
-    uses: mdegi/gitCentralConfig/.github/workflows/build-style.yml@main
+    uses: mdegi/gitCentralConfig/.github/workflows/build-style-checks.yml@main
