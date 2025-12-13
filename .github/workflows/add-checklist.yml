@@ -5,13 +5,5 @@ on:
 permissions:
   pull-requests: write
 jobs:
-  add-review-checklist:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-      - name: Add review checklist
-        uses: trixi-framework/add-pr-review-checklist@v1
-        with:
-          file: '.github/PULL_REQUEST_TEMPLATE/pull_request_template.md'
-          no-checklist-keyword: '[no checklist]' # Optional: ignore if this keyword is in the PR description
+  use-template:
+    uses: mdegi/gitCentralConfig/.github/workflows/add-checklist.yml@main
