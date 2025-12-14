@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 public class ApplicationController implements CommandLineRunner {
 
 
+	//comment here
+	
 	//public final static String inCorrectNamedVar = "testValue";
 	public static final String A_CORRECT_NAMED_VAR = "testValue";
 
