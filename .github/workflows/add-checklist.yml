@@ -1,0 +1,9 @@
+name: Add review checklist
+on:
+  pull_request_target:
+    types: [opened]
+permissions:
+  pull-requests: write
+jobs:
+  use-template:
+    uses: mdegi/gitCentralConfig/.github/workflows/add-checklist.yml@main

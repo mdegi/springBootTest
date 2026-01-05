@@ -61,7 +61,8 @@ public class CustomerService {
                 );
 
         long endCurrentMillis = System.currentTimeMillis();
-        System.out.format("End Populating Customers Duration in minutes, seconds, millliseconds: [%d] - [%s]" + " - [" + (endCurrentMillis - startCurrentMillis + "]"),
+        System.out.format("End Populating Customers Duration in minutes, seconds, millliseconds: [%d] - [%s]" + " - [" 
+                          + (endCurrentMillis - startCurrentMillis + "]"),
                 TimeUnit.MILLISECONDS.toMinutes(endCurrentMillis - startCurrentMillis),
                 TimeUnit.MILLISECONDS.toSeconds(endCurrentMillis - startCurrentMillis)
         );
@@ -82,3 +83,4 @@ public class CustomerService {
     }
 
 }
+
