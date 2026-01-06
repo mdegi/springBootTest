@@ -2,8 +2,10 @@ name: Cron Job Tests
 on:
   schedule:
     - cron: "*/5 * * * *" 
+  workflow_dispatch:
 jobs:
   build:
+    if: github.event_name != 'schedule' || vars.ENABLE_CRON == 'true'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
