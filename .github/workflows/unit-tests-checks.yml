@@ -4,7 +4,7 @@ on:
     - cron: "0 * * * *" 
   workflow_dispatch:
 jobs:
-  build:
+  execute-tests:
     if: github.event_name != 'schedule' || vars.ENABLE_CRON == 'true'
     runs-on: ubuntu-latest
     steps:
