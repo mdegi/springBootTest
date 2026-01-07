@@ -17,3 +17,22 @@ jobs:
         cache: maven
     - name: Test with Maven
       run: mvn test
+
+    - name: Send email on success
+      if: success()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ vars.SMTP_SERVER }}
+        server_port: ${{ vars.SMTP_PORT }}
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "✅ Maven tests succeeded"
+        body: |
+          Maven tests completed successfully.
+          
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+        to: ${{ secrets.EMAIL_TO }}
+        from: ${{ secrets.EMAIL_FROM }}
+          
