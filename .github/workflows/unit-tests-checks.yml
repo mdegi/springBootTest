@@ -24,8 +24,8 @@ jobs:
       with:
         server_address: ${{ vars.SMTP_SERVER }}
         server_port: ${{ vars.SMTP_PORT }}
-        username: ${{ secrets.SMTP_USERNAME }}
-        password: ${{ secrets.SMTP_PASSWORD }}
+        username: ${{ vars.MAIL_USERNAME }}
+        password: ${{ secrets.MAIL_PASSWORD }}
         subject: "✅ Maven tests succeeded"
         body: |
           Maven tests completed successfully.
@@ -33,6 +33,6 @@ jobs:
           Repository: ${{ github.repository }}
           Branch: ${{ github.ref_name }}
           Commit: ${{ github.sha }}
-        to: ${{ secrets.EMAIL_TO }}
-        from: ${{ secrets.EMAIL_FROM }}
+        to: ${{ vars.EMAIL_TO }}
+        from: ${{ vars.EMAIL_FROM }}
           
