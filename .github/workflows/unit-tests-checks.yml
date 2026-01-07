@@ -35,3 +35,21 @@ jobs:
           Repository: ${{ github.repository }}
           Branch: ${{ github.ref_name }}
           Commit: ${{ github.sha }}          
+
+    - name: Send email on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ vars.SMTP_SERVER }}
+        server_port: ${{ vars.SMTP_PORT }}
+        username: ${{ vars.MAIL_USERNAME }}
+        password: ${{ secrets.MAIL_PASSWORD }}
+        to: ${{ vars.EMAIL_TO }}
+        from: ${{ vars.EMAIL_FROM }}
+        subject: "❌ Maven tests failed"
+        body: |
+          Maven tests completed successfully.
+          
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}          
