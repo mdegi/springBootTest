@@ -26,13 +26,12 @@ jobs:
         server_port: ${{ vars.SMTP_PORT }}
         username: ${{ vars.MAIL_USERNAME }}
         password: ${{ secrets.MAIL_PASSWORD }}
+        to: ${{ vars.EMAIL_TO }}
+        from: ${{ vars.EMAIL_FROM }}
         subject: "✅ Maven tests succeeded"
         body: |
           Maven tests completed successfully.
           
           Repository: ${{ github.repository }}
           Branch: ${{ github.ref_name }}
-          Commit: ${{ github.sha }}
-        to: ${{ vars.EMAIL_TO }}
-        from: ${{ vars.EMAIL_FROM }}
-          
+          Commit: ${{ github.sha }}          
