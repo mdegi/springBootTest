@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 
 public class Customer {
 
+    //Adding new comment here
     @Id
     public String id;
 
@@ -28,5 +29,6 @@ public class Customer {
                 "Customer[id=%s, firstName='%s', lastName='%s', contactNumber='%s', creditLimit='%s']",
                 id, firstName, lastName, contactNumber, creditLimit);
     }
+
 
 }
