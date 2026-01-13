@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 public class ApplicationController implements CommandLineRunner {
 
+	//Adding some comment here - more comments
 	//public final static String inCorrectNamedVar = "testValue";
 	public static final String A_CORRECT_NAMED_VAR = "testValue";
 
@@ -31,6 +32,7 @@ public class ApplicationController implements CommandLineRunner {
 
 	private void someWrongMethod() {
 		System.out.println("Incorrect naming convention when starting with an uppercase letter");
+		System.out.println("Adding another msg ....");
 	}
 	
 	//This method has been done to test different options in requestMapping annotation
