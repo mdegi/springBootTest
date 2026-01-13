@@ -5,7 +5,9 @@ import org.springframework.data.annotation.Id;
 
 public class Customer {
 
-    //Adding new comment here
+    //Adding new comment here - this can be removed eventually ...
+
+    
     @Id
     public String id;
 
@@ -32,3 +34,4 @@ public class Customer {
 
 
 }
+
