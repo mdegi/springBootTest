@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 public class ApplicationController implements CommandLineRunner {
 
-	//Adding some comment here
+	//Adding some comment here - more comments
 	//public final static String inCorrectNamedVar = "testValue";
 	public static final String A_CORRECT_NAMED_VAR = "testValue";
 
