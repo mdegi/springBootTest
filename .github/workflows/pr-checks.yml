@@ -1,0 +1,11 @@
+name: Maven Build, Lint & Pr Checks
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+jobs:
+  use-template: 
+    uses: mdegi/gitCentralConfig/.github/workflows/pr-checks.yml@main
