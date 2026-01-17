@@ -2,6 +2,7 @@ name: Add review checklist
 on:
   pull_request_target:
     types: [opened]
+  workflow_dispatch:
 jobs:
   use-template:
     uses: mdegi/gitCentralConfig/.github/workflows/add-checklist.yml@main
