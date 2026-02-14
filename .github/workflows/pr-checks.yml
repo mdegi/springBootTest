@@ -8,4 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   use-template: 
-    uses: mdegi/gitCentralConfig/.github/workflows/pr-checks.yml@main
+    uses: mdegi/gitCentralConfig/.github/workflows/pr-checks.yml@main   
+    with:
+      java_version: '21'   # override here
+
