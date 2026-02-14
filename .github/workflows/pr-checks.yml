@@ -19,8 +19,6 @@ jobs:
       - name: Extract Java version from pom.xml
         id: extract
         run: |
-          # This looks for <java.version> or <maven.compiler.source>
-          # You can adjust the regex based on your specific tag name
           VERSION=$(grep -oPm1 '(?<=<java.version>)[^<]+' pom.xml || grep -oPm1 '(?<=<maven.compiler.source>)[^<]+' pom.xml)
           echo "Detected Java version: $VERSION"
           echo "java_version=$VERSION" >> $GITHUB_OUTPUT
