@@ -21,6 +21,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CustomerServiceTest {
 
+    //comment
     @Mock
     private CustomerRepository repository;
 
