@@ -19,9 +19,21 @@ jobs:
       - name: Extract Java version from pom.xml
         id: extract
         run: |
-          VERSION=$(grep -oPm1 '(?<=<java.version>)[^<]+' pom.xml || grep -oPm1 '(?<=<maven.compiler.source>)[^<]+' pom.xml)
-          echo "Detected Java version: $VERSION"
-          echo "java_version=$VERSION" >> $GITHUB_OUTPUT
+          JAVA_VER=$(grep -oPm1 '(?<=<java.version>)[^<]+' pom.xml || grep -oPm1 '(?<=<maven.compiler.source>)[^<]+' pom.xml)
+          echo "Detected Java version: $JAVA_VER"
+
+          # if version looks like "1.8", normalize to "8"
+          if [[ "$JAVA_VER" =~ ^1\.([0-9]+)$ ]]; then
+            JAVA_VER="${BASH_REMATCH[1]}"
+          fi
+      
+          if [ -z "$JAVA_VER" ]; then
+            echo "Could not determine Java version from pom.xml (maven.compiler.release/source)."
+            echo "Consider defining <properties><maven.compiler.release>XX</maven.compiler.release></properties>."
+            exit 1
+          fi
+
+          echo "java_version=$JAVA_VER" >> $GITHUB_OUTPUT
 
   use-template: 
     needs: get-java-version
