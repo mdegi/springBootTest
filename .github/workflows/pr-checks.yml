@@ -7,8 +7,27 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 jobs:
+
+  get-java-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract.outputs.java_version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract Java version from pom.xml
+        id: extract
+        run: |
+          # This looks for <java.version> or <maven.compiler.source>
+          # You can adjust the regex based on your specific tag name
+          VERSION=$(grep -oPm1 '(?<=<java.version>)[^<]+' pom.xml || grep -oPm1 '(?<=<maven.compiler.source>)[^<]+' pom.xml)
+          echo "Detected Java version: $VERSION"
+          echo "java_version=$VERSION" >> $GITHUB_OUTPUT
+
   use-template: 
+    needs: get-java-version
     uses: mdegi/gitCentralConfig/.github/workflows/pr-checks.yml@main   
     with:
-      java_version: '21'   # override here
+      java_version: ${{ needs.get-java-version.outputs.version }}
 
