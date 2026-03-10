@@ -40,4 +40,5 @@ jobs:
     uses: mdegi/gitCentralConfig/.github/workflows/pr-checks.yml@main   
     with:
       java_version: ${{ needs.get-java-version.outputs.version }}
+      do_linting: true
 
