@@ -32,6 +32,13 @@ public class ApplicationController implements CommandLineRunner {
 	private void someWrongMethod() {
 		System.out.println("Incorrect naming convention when starting with an uppercase letter");
 		System.out.println("Adding another msg ....");
+
+		if (1 == 2) {
+			System.out.println("Somehow 1 is equal to 2 !!");
+		}
+
+		if (3 == 4) System.out.println("Out of this world 3 is equal to 4 !!");
+			
 	}
 	
 	//This method has been done to test different options in requestMapping annotation
