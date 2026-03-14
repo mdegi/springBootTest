@@ -64,6 +64,9 @@ public class ApplicationController implements CommandLineRunner {
 			if (customerRec != null) {
 				customers.add(customerService.findByFirstName(name).toString());
 			}
+
+			if (1 == 2) System.out.println("1 is equal to 2 - can you believe it !");
+			
 			return customers;
 		}
 	}
